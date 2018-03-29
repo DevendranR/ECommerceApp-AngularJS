@@ -1,0 +1,184 @@
+
+<div ng-controller="homeController">
+	<script type="text/ng-template" id="myModalContent.html">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Thank You for Contacting us {{$ctrl.items.name.$modelValue}} !</h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+        We will get back to you soon on {{$ctrl.items.phone.$modelValue}} or {{$ctrl.items.email.$modelValue}} ,regarding {{$ctrl.items.message.$modelValue}} 
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+      </div>
+    </script>
+	<div style="height: auto;">
+		<div uib-carousel active="active" interval="myInterval"
+			no-wrap="noWrapSlides">
+			<div uib-slide ng-repeat="slide in slides track by slide.id"
+				index="slide.id">
+				<img ng-src="{{slide.image}}" style="margin: auto;">
+				<div class="carousel-caption">
+					<p>{{slide.text}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="about" class="col-lg-12 aboutSection">
+		<h1>About :</h1>
+
+		<h3>Thank you for letting us introduce ourselves</h3>
+		<p>We are dedicated to provide Unique and creative solutions that
+			meet the client&#39;s expectations not only by realizing the client&#39;s
+			business objective, but particularly by our strict adherence to the
+			ethical principles.</p>
+		<h3>Who We Are</h3>
+		<p>FiveY Ventures is a division of Sridhans Consulting based in
+			Hosur and Coimbatore, Tamil Nadu. We are a small super-charged team
+			with expertise in Industrial Consulting, Private Relations, B2B
+			marketing and hospitality background.</p>
+		<p>Our goal is simple- to ensure high quality construction needs
+			under one roof with high customer satisfaction. While our vision is
+			noble, we back up that vision with reliable, trustworthy,
+			professional service and high-quality industry competence. Our
+			passion translates into positive working relationship and
+			transparency that reflects in our true secret for success and
+			business relationships.</p>
+		<p>
+			We provide high quality construction products like Cements, TMT Steel
+			bars, M-Sand, UPVC windows directly from respected brands. We make
+			sure you get exactly what you want. We then follow up with you for
+			other requirements in every stage of your construction. We also offer
+			Insurance across various segments which includes Industrial, Marine,
+			travel, health, Workmen compensation, Professional indemnity, Public
+			liability and automobiles.<br>
+			<br>
+		</p>
+		<h3>How different are we</h3>
+		<ol>
+
+			<li><b>We listen:</b> We listen to our client and provide the
+				best possible products. Together, we find the perfect balance of
+				infrastructure needs to integrate solutions to meet your unique
+				needs.</li>
+			<li><b>Timely Service:</b> We have the experience and knowledge
+				to provide the best solution in the least possible time. We will
+				also be involved in every step of your construction to provide the
+				right materials required at the right time there by avoiding delays.</li>
+			<li><b>Complete Service and Support:</b> We provide full support
+				and service beyond the sale to help make your business a complete
+				success.</li>
+			<li><b>Committed to Excellence:</b> We believe that a passionate
+				commitment to excellence is crucial to survive in the highly
+				competitive construction industry. It&#39;s also crucial for the ongoing
+				success of your business. We take pride in constantly looking for
+				options to improve the way we serve our clients.</li>
+			<li><b>Concerned:</b> We care about you and your business and so
+				we will give personal attention during the working phase of every
+				project.</li>
+			<li><b>You make us happy :</b> We will keep working with you
+				till you have accomplished your task. We believe in honest, open
+				communication and meeting your expectations is one of our primary
+				goals.</li>
+		</ol>
+		<p>If you&#39;re looking for the best and cost effective providers of
+			Building Materials and Industrial consultants, look no further. We
+			offer honest, trustworthy services at affordable prices that will
+			exceed your expectations. Give us a try and find out what we can do
+			to ignite your business success that will outperform your
+			competition.</p>
+	</div>
+	<div id="product" class="col-lg-12">
+		<h1>Products and services</h1>
+		<p>We sell products for construction perposes and we provide
+			services like insurance providance. Click on the link below for
+			respective segments</p>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="thumbnail">
+					<a href="#/product"> <img ng-src="img/jswcement.jpg" alt="">
+						<div class="caption">
+							<p>Products</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="thumbnail">
+					<a href="#/service"> <img ng-src="img/jswsteel.jpg" alt="">
+						<div class="caption">
+							<p>Services</p>
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="contact" class="col-lg-12 contactSection">
+		<h1>Contact Section</h1>
+		<div class="redBody">{{errMessage}}</div>
+
+
+		<form name="contactForm" novalidate ng-submit="validateContact()">
+
+			<div class="form-group">
+				<label class="left">Name:</label> <input type="text"
+					class="form-control" name="name" ng-model="name" required>
+				<span style="color: red"
+					ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+					<span ng-show="contactForm.name.$error.required">Username is
+						required.</span>
+				</span>
+			</div>
+
+			<div class="form-group">
+				<label class="left">Email:</label> <input type="email"
+					class="form-control" name="email" ng-model="email" required>
+				<span style="color: red"
+					ng-show="contactForm.email.$dirty && contactForm.email.$invalid">
+					<span ng-show="contactForm.email.$error.required">Email is
+						required.</span> <span ng-show="contactForm.email.$error.email">Invalid
+						email address.</span>
+				</span>
+			</div>
+			<div class="form-group">
+				<label class="left">Phone:</label> <input type="number"
+					class="form-control" name="phone" ng-model="phone" required>
+				<span style="color: red"
+					ng-show="contactForm.phone.$dirty && contactForm.phone.$invalid">
+					<span ng-show="contactForm.phone.$error.required">phone is
+						required.</span>
+				</span>
+			</div>
+			<div class="form-group">
+				<label class="left">Message:</label>
+				<textarea required class="form-control" name="message"
+					ng-model="message"></textarea>
+				<span style="color: red"
+					ng-show="contactForm.message.$dirty && contactForm.message.$invalid">
+					<span ng-show="contactForm.message.$error.required">message
+						is required.</span>
+				</span>
+			</div>
+			<div>
+				<input type="submit" class="btn btn-primary"
+					ng-disabled="contactForm.name.$pristine||contactForm.email.$pristine||
+					contactForm.phone.$pristine||contactForm.message.$pristine||
+					contactForm.name.$dirty && contactForm.name.$invalid ||  
+					contactForm.email.$dirty && contactForm.email.$invalid||  
+					contactForm.phone.$dirty && contactForm.phone.$invalid||  
+					contactForm.message.$dirty && contactForm.message.$invalid">
+			</div>
+
+		</form>
+
+
+		<br>
+
+		<div id="googleMap" style="width: 100%; height: 300px;"></div>
+		<br>
+
+	</div>
+</div>
+

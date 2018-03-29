@@ -1,0 +1,107 @@
+
+<div ng-controller="cartController" ng-init="getCartValue()" class="text-center min500px">
+<script type="text/ng-template" id="orderPlaced.html">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Your Order Has been placed successfully !</h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+			<h4>you will be contacted back soon regarding your order...<h4>
+		
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+      </div>
+    </script>
+    <script type="text/ng-template" id="addCustomerDetails.html">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Please fill the following details !</h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+			<form name="$ctrl.placeOrderForm" novalidate ng-submit="$ctrl.addCustomerDetails()">
+
+			<div class="form-group">
+				<label class="left">Name:</label> <input type="text"
+					class="form-control" name="name" ng-model="name" required>
+				<span style="color: red"
+					ng-show="$ctrl.placeOrderForm.name.$dirty && $ctrl.placeOrderForm.name.$invalid">
+					<span ng-show="$ctrl.placeOrderForm.name.$error.required">Username is
+						required.</span>
+				</span>
+			</div>
+
+			<div class="form-group">
+				<label class="left">Email:</label> <input type="email"
+					class="form-control" name="email" ng-model="email" required>
+				<span style="color: red"
+					ng-show="$ctrl.placeOrderForm.email.$dirty && $ctrl.placeOrderForm.email.$invalid">
+					<span ng-show="$ctrl.placeOrderForm.email.$error.required">Email is
+						required.</span> <span ng-show="$ctrl.placeOrderForm.email.$error.email">Invalid
+						email address.</span>
+				</span>
+			</div>
+			<div class="form-group">
+				<label class="left">Phone:</label> <input type="number"
+					class="form-control" name="phone" ng-model="phone" required>
+				<span style="color: red"
+					ng-show="$ctrl.placeOrderForm.phone.$dirty && $ctrl.placeOrderForm.phone.$invalid">
+					<span ng-show="$ctrl.placeOrderForm.phone.$error.required">phone is
+						required.</span>
+				</span>
+			</div>
+			<div>
+				<input type="submit" class="btn btn-primary"
+					ng-disabled="$ctrl.placeOrderForm.name.$pristine||$ctrl.placeOrderForm.email.$pristine||
+					$ctrl.placeOrderForm.phone.$pristine||
+					$ctrl.placeOrderForm.name.$dirty && $ctrl.placeOrderForm.name.$invalid ||  
+					$ctrl.placeOrderForm.email.$dirty && $ctrl.placeOrderForm.email.$invalid||  
+					$ctrl.placeOrderForm.phone.$dirty && $ctrl.placeOrderForm.phone.$invalid">
+			</div>
+
+		</form>
+		
+      </div>
+    </script>
+<div ng-if="cartItems==undefined || !cartItems.length">
+	<br><br><br><h3>Your Cart is Empty! Kindly continue Shopping !!</h3>
+	<div><i class="emptyCart fa fa-shopping-cart" aria-hidden="true"></i></div>
+</div>
+<div ng-if="cartItems!=undefined && cartItems.length>0">
+
+					<div class="form-group">
+						<h4> Your Cart </h4>
+						<table class="table">
+							<thead>
+								<tr class="success">
+									<td>Product Id</td>
+									<td>Product Name</td>
+									<td>Product Type</td>
+									<td>Quantity</td>
+									<td>Quantity Type</td>
+									<td>Specification</td>
+									<td>Delete</td>
+								</tr>
+						</thead>
+						<tbody>
+								<tr ng-repeat="item in cartItems">
+								
+									<td>{{item.Id}}</td>
+									<td>{{item.Name}}</td>
+									<td>{{item.Type}}</td>
+									<td>{{item.Quantity}}</td>
+									<td>{{item.QuantityType}}</td>
+									<td>{{item.Diameter}}</td>
+									<td><input type="checkbox" name="option"
+							ng-bind="{{item.isClicked}}"
+							ng-click="removeFromCart(item)" >						
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					
+			<button type="button" id="orderBtn" class="btn btn-primary" ng-click="placeOrder(cartItems)">Place Order</button>
+								
+
+</div>
+</div>
+			

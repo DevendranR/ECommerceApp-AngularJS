@@ -1,0 +1,29 @@
+[
+{
+"pid":"product1",
+"pname":"JSWCement",
+"price":[{"type":"No of Bags","price":"800"},{"type":"Kg","price":"400"}],
+"ptype":"cement",
+"pdescription":"This cement is of bestQuality",
+"img":"img/jswcement.jpg"
+},
+{
+"pid":"product2",
+"pname":"JSWSteel",
+"price":[{"type":"kg","price":"700"},{"type":"bundle","price":"300"}],
+"ptype":"steel",
+"pdescription":"This steel is of bestQuality",
+"pdiameter":"7mm",
+"img":"img/jswsteel.jpg"
+},
+{
+"pid":"product3",
+"pname":"JSWSteel",
+"price":[{"type":"kg","price":"1000"},{"type":"bundle","price":"1300"}],
+"ptype":"steel",
+"pdescription":"This steel is of bestQuality",
+"pdiameter":"9mm",
+"img":"img/jswsteel.jpg"
+}
+
+]

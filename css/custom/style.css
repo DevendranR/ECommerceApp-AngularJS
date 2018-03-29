@@ -1,0 +1,75 @@
+img {
+    max-width: 100%;
+}
+.aboutSection,.contactSection{
+	background: #eee;
+}
+.footer,.footer a{
+	color:#fff!important;
+	background-color:#000!important;
+}
+.redBody{
+	color:red;
+}
+.navbar{
+	margin-bottom:0;
+}
+.image-container {
+    background-image: url("../../img/underconstruction.jpg");
+}
+.emptyCart{
+	font-size: 160px !important;
+}
+.fa {
+    padding: 16px;
+    font-size: 26px;
+    width: 64px;
+    margin: 5px 2px;
+}
+.fa-shopping-cart {
+    padding: 0;
+    font-size: 19px;
+    width: 20px;
+    margin: 0;
+}
+
+#products select {
+    width: 96px;
+    margin: 0px 10px;
+}
+#products input {
+    width: 90px;
+    margin: 0px 10px;
+}
+#products label {
+    width: 80px;
+    margin: 0px 10px;
+}
+#products .btn-primary {
+    margin: 0 10px;
+}
+.flexDisplay{
+	display:-webkit-box;
+}
+.emptyPrice{
+	padding: 8px 42px 0px 25px;
+	background-color: #eee;
+    border-radius: 6px;
+    margin:0 10px 0 10px;
+}
+.errMessage{
+	color:red;
+	margin: 13px 0 0 18px;
+    padding: 23px 0 23px 23px;
+    font-size: 20px;
+    background-color: antiquewhite;
+}
+.min500px{
+	min-height:500px;
+}
+.modal-header{
+	background-color: lightgreen;
+}
+.modal-open {
+    overflow: auto;
+}

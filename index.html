@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<script src="js/common/angular.js"></script>
+<script src="js/common/ngStorage.min.js"></script>
+<script src="js/common/angular-route.js"></script>
+<script src="js/common/angular-cookies.js"></script>
+<script src="js/common/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/custom/services.js"></script>
+<script src="js/custom/controller.js"></script>
+
+<title>FiveY Ventures</title>
+<link rel="stylesheet" href="css/common/bootstrap.min.css">
+<link rel="stylesheet" href="css/common/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom/style.css">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd6J4RBu-NlTsSQeUa77O-pjrhr5jKW5U&callback=initMap"></script>
+
+<script>
+function initMap() {
+	var fiveyVentures = {lat: 12.7123398, lng: 77.80034};
+    var map = new google.maps.Map(document.getElementById('googleMap'), {
+      zoom: 12,
+      center: fiveyVentures
+    });
+    var marker = new google.maps.Marker({
+      position: fiveyVentures,
+      map: map
+    });
+   } 
+
+
+</script>
+</head>
+<body ng-app="fiveyVentures" ng-controller="indexController">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/">FiveYventures</a>
+			</div>
+			<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+				<ul class="nav navbar-nav">
+						<li uib-dropdown on-toggle="toggled(open)">
+				          <a href="#/" id="simple-dropdown" uib-dropdown-toggle>Home<b class="caret"></b></a>
+				          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+					        <li>
+					          <a ng-click="jumpToLocation('about')">About</a>
+					          <a ng-click="jumpToLocation('product')">Products</a>
+					          <a ng-click="jumpToLocation('contact')" >Contact</a>
+					        </li>
+					      </ul>
+				        </li>
+	                    <li><a href="#/product">Products</a></li>
+	                    <li><a href="#/service">Services</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>({{cartLength}})</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+			
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 centering">
+				<div ng-view></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-lg-12 footer padding-16" style="text-align:center;">
+                    <!-- Footer -->
+                    <div class="col-lg-4">
+                    	<div>.</div>
+                    	<div><a href="#/disclaimer">Disclaimer</a></div>
+                    	<div><a href="#/privacy">privacy</a></div>
+                    	<div><a href="#/">Terms of Service</a></div>
+                    </div>
+                    <div class="col-lg-4">
+						<footer >
+					  <div>
+					  	<a href="https://www.facebook.com/FiveYVentures" class="fa fa-facebook" target="_blank"></a>
+						<a href="https://twitter.com/FiveyVentures" class="fa fa-twitter" target="_blank"></a>
+						<a href="https://www.instagram.com/fiveyventures/" class="fa fa-instagram" target="_blank"></a>
+					  </div>
+					  </footer>
+					</div>
+					<div class="col-lg-4 text-left" >
+						<span>Phone    : +91 7338441222</span><br>
+						<span>Web site : www.fiveyventures.com</span><br>
+						<span>Address  : #9/5-7/8 &amp; 7/9,Maruthi Complex, Andhivadi Village</span><br>
+						<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HCF Post, Hosur,Krishnagiri Dt., TamilNadu -635110</span>
+					</div>
+					
+					  <p>Copyrights 2017 &copy; FiveYVentures.com, All rights reserved</p>
+					  
+					
+                </div>
+
+</body>
+</html>
